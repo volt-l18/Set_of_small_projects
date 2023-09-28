@@ -32,6 +32,7 @@ def delete_task():
 
 def delete_all_tasks():
     pass
+    #code is under devlopement not finished yet
 
 labeltitle = tk.Label(window, text='To - Do List')
 labeltitle.config(font=('helvetica', 20))
