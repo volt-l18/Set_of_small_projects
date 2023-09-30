@@ -66,8 +66,11 @@ if __name__ == "__main__":
     the_cursor.execute("create table if not exists tasks (title here)")
     tasks = []
     lable = Label(canvas,text= "To - Do List",font=( "arial" ,25 , "bold"), foreground= "black")
-    entry_box = Entry(canvas , font= ("arial" , 14) , foreground= "black" , background= "white")
+    task_field = Entry(canvas , font= ("arial" , 14) ,width= 32, foreground= "black" , background= "white")
+    add_button =Button(canvas, text = "Add Task", width = 15,bg='#D4AC0D', font=("arial", "14", "bold"), command = add_task)
 
     lable.place(x = 110 , y = 20)
+    task_field.place(x = 20 , y = 70)
+    add_button.place(x = 40 , y = 90)
 
     window.mainloop()
