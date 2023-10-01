@@ -8,7 +8,7 @@ def add_task():
         messagebox.showinfo("feild is empty")
     else:
         tasks.append(task_string)
-        the_cursor.execute('insert into tasks value(?)',(task_string))
+        the_cursor.execute("insert into tasks value(?)",(task_string ,))
         list_update()
         task_field.delete(0,"end")
 
@@ -65,12 +65,27 @@ if __name__ == "__main__":
     the_cursor = the_connection.cursor()
     the_cursor.execute("create table if not exists tasks (title here)")
     tasks = []
-    lable = Label(canvas,text= "To - Do List",font=( "arial" ,25 , "bold"), foreground= "black")
+
+    lable1 = Label(canvas,text= "To - Do List",font=( "arial" ,25 , "bold"), foreground= "black")
+    lable2 = Label(canvas,text= "All Tasks :- ",font=( "arial" ,15 , "bold"), foreground= "black")
     task_field = Entry(canvas , font= ("arial" , 14) ,width= 32, foreground= "black" , background= "white")
-    add_button =Button(canvas, text = "Add Task", width = 15,bg='#D4AC0D', font=("arial", "14", "bold"), command = add_task)
+    add_button =Button(canvas, text = "Add Task", width = 8,bg='grey', font=("arial", "8", "bold"), command = add_task)
+    del_button =Button(canvas, text = "Delete Task", width = 8,bg='grey', font=("arial", "8", "bold"), command = delete_task)
+    del_all_button =Button(canvas, text = "Delete all Task", width = 8,bg='grey', font=("arial", "8", "bold"), command = delete_all_tasks)
+    exit_button =Button(canvas, text = "Exit", width = 8,bg='red', font=("arial", "8", "bold"), command = close)
+    task_listbox = Listbox(canvas, height=15 , width= 60 )
 
-    lable.place(x = 110 , y = 20)
+    lable1.place(x = 110 , y = 20)
     task_field.place(x = 20 , y = 70)
-    add_button.place(x = 40 , y = 90)
+    add_button.place(x = 60 , y = 110)
+    del_button.place(x = 160 , y = 110)
+    del_all_button.place(x = 260 , y = 110)
+    exit_button.place(x = 160 , y = 160)
+    lable2.place(x = 17 , y = 200)
+    task_listbox.place(x = 17 , y = 240)
 
+    retrieve_database()
+    list_update()
     window.mainloop()
+    the_connection.commit()
+    the_cursor.close()
