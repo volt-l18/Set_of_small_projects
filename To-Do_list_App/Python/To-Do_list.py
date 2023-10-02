@@ -89,3 +89,5 @@ if __name__ == "__main__":
     window.mainloop()
     the_connection.commit()
     the_cursor.close()
+
+    #funtionality might not work properly for everyone issue is still unclear
