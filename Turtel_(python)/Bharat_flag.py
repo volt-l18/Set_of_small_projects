@@ -61,5 +61,25 @@ pen.pendown()
 pen.circle(25)
 pen.end_fill()
 
+pen.fillcolor("white")
+pen.begin_fill()
+pen.penup()
+pen.goto(0,-3)
+pen.pendown()
+pen.circle(23)
+pen.end_fill()
+
+pen.fillcolor("blue")
+pen.begin_fill()
+a = 24
+while(a):
+    pen.right(90)
+    pen.forward(11.5)
+    pen.right(180)
+    pen.forward(11.5)
+    pen.circle(23,15)
+    a -= a
+pen.end_fill()
+
 turtle.done()
 screen.exitonclick()
