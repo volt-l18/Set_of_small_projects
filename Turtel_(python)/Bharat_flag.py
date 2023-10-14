@@ -69,17 +69,18 @@ pen.pendown()
 pen.circle(23)
 pen.end_fill()
 
-pen.fillcolor("blue")
-pen.begin_fill()
-a = 24
-while(a):
-    pen.right(90)
-    pen.forward(11.5)
+pen.color("blue")
+pen.width(2)
+a = 0
+while(a<24):
+    a = a + 1
+    pen.right(270)
+    pen.forward(23)
     pen.right(180)
-    pen.forward(11.5)
+    pen.forward(23)
+    pen.left(90)
     pen.circle(23,15)
-    a -= a
-pen.end_fill()
+pen.width(1)
 
 turtle.done()
 screen.exitonclick()
